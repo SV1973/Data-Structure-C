@@ -112,6 +112,7 @@ void bubble_Sort(int array[], int n) {
     }
 
     printf("\nBubble Sort Successful!\n");
+    
 }
 
 void selection_Sort(int array[], int n) {
