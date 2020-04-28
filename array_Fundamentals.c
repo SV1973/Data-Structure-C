@@ -1,4 +1,7 @@
 /*
+ *
+ * Beginners Commit.
+ * 
  * The Program Demonstrates the following basic operations performed on the array.
  * 1. Accept.
  * 2. Display.

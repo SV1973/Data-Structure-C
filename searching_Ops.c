@@ -1,4 +1,7 @@
 /*
+ *
+ * Beginners Commit.
+ * 
  * The Program demonstrates the methods of Searching.
  * 1. Linear Search.
  * 2. Binary Search.
