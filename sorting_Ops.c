@@ -6,11 +6,11 @@
  * 
 ***/
 
-// --- HEADER FILE. ---
+// ------------------------------------ HEADER FILES -------------------------------------
 
 #include"stdio.h"
 
-// --- FUNCTION DECLARATION. ---
+// ------------------------------- FUNCTION DECLARATION ----------------------------------
 
 void accept_Elements(int[], int);
 void display_Elements(int[], int);
@@ -18,6 +18,8 @@ void bubble_Sort(int[], int);
 void selection_Sort(int[], int);
 void insertion_Sort(int[], int);
 
+
+// --------------------------------- MAIN FUNCTION ---------------------------------------
 
 int main() {
     int array[15], i, n, choice;
@@ -68,7 +70,8 @@ int main() {
 
 }
 
-// --- FUNCTION DEFINITIONS. ---
+
+// --------------------------------- FUNCTION DEFINITIONS --------------------------------
 
 void accept_Elements(int array[], int n) {
     printf("\n");

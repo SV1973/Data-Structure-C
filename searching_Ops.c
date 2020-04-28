@@ -5,11 +5,11 @@
  *  
 ***/
 
-// HEADER FILES.
+// ------------------------------------ HEADER FILES -------------------------------------
 
 #include"stdio.h"
 
-// FUNCTION DECLARATION.
+// ------------------------------- FUNCTION DECLARATION ----------------------------------
 
 void accept_Elements(int[],int);
 void display_Elements(int[],int);
@@ -21,9 +21,7 @@ int linear_Search(int[],int,int);
 int binary_Search(int[],int,int);
 
 
-// ---------------------------------------------------------------------------------------
-
-// MAIN FUNCTITON.
+// --------------------------------- MAIN FUNCTION ---------------------------------------
 
 int main() {
 
@@ -80,7 +78,7 @@ int main() {
 }
 
 
-// ---------------------------------------------------------------------------------------
+// --------------------------------- FUNCTION DEFINITIONS --------------------------------
 
 void accept_Elements(int array[], int n) {
 

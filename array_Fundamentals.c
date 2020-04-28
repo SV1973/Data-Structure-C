@@ -8,18 +8,20 @@
 ***/
 
 
-// --- HEADER FILE. ---
+// ------------------------------------ HEADER FILES -------------------------------------
 
 #include"stdio.h"
 
-// --- FUNCTION DECLARATION. ---
+// ------------------------------- FUNCTION DECLARATION ----------------------------------
 
 void accept_Elements(int[], int);
 void display_Elements(int[], int);
 int insert_Elements(int[], int, int, int);
 int delete_Elements(int[], int, int);
 
-// MAIN FUNCTION.
+
+// --------------------------------- MAIN FUNCTION ---------------------------------------
+
 int main () {
 
     int array[15], i, n, pos, value, choice;
@@ -77,7 +79,8 @@ int main () {
     
 }
 
-// --- FUNCTION DEFINITIONS. ---
+
+// --------------------------------- FUNCTION DEFINITIONS --------------------------------
 
 void accept_Elements(int array[], int n) {
     printf("\n");
