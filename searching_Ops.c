@@ -1,5 +1,4 @@
 /*
- *
  * Beginners Commit.
  * 
  * The Program demonstrates the methods of Searching.
