@@ -73,6 +73,7 @@ int main() {
                 // exit(0);
 
             default:
+                printf("\nYour Choice is Invalid! Please revisit the Menu.");
                 break;
         }
 
