@@ -86,23 +86,23 @@ int main() {
             case 2: 
                 x = dequeue_Op(&q);
                 if(x!=-1)
-                    printf("\nEnqueue Operation Successful.");
+                    printf("\nEnqueue Operation Successful.\n");
                 else 
-                    printf("\nQueue is Empty.");
+                    printf("\nQueue is Empty.\n");
                 break;
 
             case 3:
                 if(check_Full(&q))
-                    printf("\nThe Queue is Full.");
+                    printf("\nThe Queue is Full.\n");
                 else 
-                    printf("\nThe Queue is Not Full.");
+                    printf("\nThe Queue is Not Full.\n");
                 break;
 
             case 4:
                 if(check_Empty(&q))
-                    printf("\nThe Queue is Full.");
+                    printf("\nThe Queue is Empty.\n");
                 else 
-                    printf("\nThe Queue is Not Full.");
+                    printf("\nThe Queue is Not Empty.\n");
                 break;
 
             case 5:
@@ -122,4 +122,92 @@ int main() {
 
 
 // -------------------------------- FUNCTION DEFINITIONS ---------------------------------
+
+void init(queue *q) {
+
+    q -> f = -1;
+    q -> r = -1;
+}
+
+int check_Full(queue *q) {
+
+    if(q->r == MAX-1)
+        return 1;
+    else 
+        return 0;
+}
+
+int check_Empty(queue *q) {
+
+    if(q->f == -1) 
+        return 1;
+    else 
+        return 0;
+}
+
+void enqueue_Op(queue *q, int x) {
+
+    if(check_Full(q)){
+        printf("\nThe Queue is Full.\n");
+
+    } else {
+
+        if(check_Empty(q)) {
+            q->f = q->r = 0;
+            q->data[q->r] = x;
+            printf("\nEnqueue Operation Successful.\n");
+
+        } else {
+            q->r = q->r + 1;
+            q->data[q->r] = x;
+            printf("\nEnqueue Operation Successful.\n");
+
+        }
+
+    }
+}
+
+
+int dequeue_Op(queue *q) {
+
+    int x = -1;
+
+    if(check_Empty(q)){
+        return -1;
+
+    } else {
+        if(q->f == q->r) {
+            x = q->data[q->f];
+            init(q);
+
+        } else {
+            x = q->data[q->f];
+            q->f = q->f + 1;
+
+        }
+
+    }
+
+    return 0;
+}
+
+void display_Queue(queue *q) {
+
+    int i;
+
+    if(check_Empty(q)) {
+
+        printf("\nThe Queue is Empty.");
+
+    } else {
+        printf("\n");
+
+        for(i = q->f; i<=q->r; i++) {
+
+            printf("%d\t", q->data[i]);
+
+        }
+        printf("\n");
+    }
+}
 
