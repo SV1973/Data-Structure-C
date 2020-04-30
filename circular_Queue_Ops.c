@@ -1,14 +1,13 @@
 /**
- * Intermediat Commit.
+ * Intermediate Commit.
  * 
- * The Program Demonstrates the Linear Queue Opearations.
+ * The Programm demonstrates the Circular Queue Opearations.
  * 1. Initialize the queue as empty.
  * 2. Enqueue Element in the Queue.
  * 3. Dequeue Element in the Queue.
  * 4. Check Whether the Queue is Full. 
  * 5. Check Whether the Queue is Empty.
- * 6. Didplay the Linear Queue. 
- * 
+ * 6. Didplay the Linear Queue.
  * 
 **/
 
@@ -17,11 +16,13 @@
  *              |                                                               |
  *              |    _____________________________________________________      |
  *              |   |        |        |        |        |        |        |     |
- *  q -> data   |   |        |   09   |   78   |   45   |   34   |        |     |
+ *  q -> data   |   |  98    |        |        |   87   |   54   |   47   |     |
  *              |   |________|________|________|________|________|________|     |
  *              |                                                               |
  *              |                                                               |
- *              |              q -> f                     q -> r                |
+ *              |     q -> r                      q -> f                        |
+ *              |                                                               |
+ *              |                               flow --->                       |
  *              |                                                               |
  *              |____                                                       ____|
  *
@@ -132,81 +133,65 @@ void init(queue *q) {
 
 int check_Full(queue *q) {
 
-    if(q->r == MAX-1)
+    if((q->f==0 && q->r==MAX-1) || (q->f == q->r+1))
         return 1;
-    else 
-        return 0;
+    return 0;
 }
 
 int check_Empty(queue *q) {
 
-    if(q->f == -1) 
+    if(q->f == -1)
         return 1;
-    else 
-        return 0;
+    return 0;
 }
 
 void enqueue_Op(queue *q, int x) {
 
-    if(check_Full(q)){
+    if(check_Full(q))
         printf("\nThe Queue is Full.\n");
 
-    } else {
-
-        if(check_Empty(q)) {
-            q->f = q->r = 0;
-            q->data[q->r] = x;
-            printf("\nEnqueue Operation Successful.\n");
-
-        } else {
-            q->r = q->r + 1;
-            q->data[q->r] = x;
-            printf("\nEnqueue Operation Successful.\n");
-
-        }
-
+    else {
+        if (q->f==-1)
+            q->f = 0;
+        q->r = (q->r+1) % MAX;
+        q->data[q->r] = x;
+        printf("\nEnqueue Opearation Successful.\n");
     }
+
 }
 
-
 int dequeue_Op(queue *q) {
+    int x;
 
-    int x = -1;
-
-    if(check_Empty(q)){
+    if(check_Empty(q))
         return -1;
 
-    } else {
+    else {
+        x = q->data[q->f];
+
         if(q->f == q->r) {
             x = q->data[q->f];
             init(q);
 
         } else {
-            x = q->data[q->f];
-            q->f = q->f + 1;
+            q->f = (q->f+1) % MAX;
 
         }
 
     }
-
-    return 0;
 }
 
 void display_Queue(queue *q) {
 
-    int i;
+    if(check_Empty(q))
+        printf("\nThe Queue is Empty.\n");
 
-    if(check_Empty(q)) {
+    else {
+        int i;
 
-        printf("\nThe Queue is Empty.");
-
-    } else {
         printf("\n");
-
-        for(i = q->f; i<=q->r; i++) {
-
+        for(i=q->f ; i!=q->r; i = (i+1)%MAX){
             printf("%d\t", q->data[i]);
-
         }
         printf("\n");
     }
